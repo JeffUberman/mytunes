@@ -8,14 +8,18 @@ var SongModel = Backbone.Model.extend({
 
   enqueue: function(){
     // Triggering an event here will also trigger the event on the collection
-    console.log('hi');
-    console.log(this.attributes);
     this.trigger('enqueue', this);
+    // this.trigger('change:Queue', this);
   },
 
   dequeue: function(){
     // Triggering an event here will also trigger the event on the collection
     this.trigger('dequeue', this);
+    // this.trigger('change:Queue', this);
+  },
+
+  ended: function() {
+    this.trigger('ended', this);
   }
 
 });
